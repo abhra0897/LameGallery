@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LameGallery0.1 Client</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="w3.css">
+</head>
+<body>
+
+	<div class="w3-row">
+		<div class="w3-col w3-container s12 m12 l12" style="text-align: center; background-color: rgb(74, 129, 188);">
+			<p style="font-size: 24px; color: white;"> <b>LameGallery</b> Image Uploader</p>
+		</div>
+		
+	</div>
+
+	<div class="w3-row">
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-blue" style="text-align: center;">
+			<img id="img_1" src="/image_1.jpg" width="100" height="100"></img>
+		</div>
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-green" style="text-align: center;">
+			<img id="img_2" src="/image_2.jpg" width="100" height="100"></img>
+		</div>
+	</div>
+	<div class="w3-row">
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-blue" style="text-align: left;">
+			<form id="form_image_1" method="post" enctype="multipart/form-data">
+				<input type="file" id="file_img_1" name="myfile">
+				<input type="submit" id="submit1" name="submit" value="Upload image_1" >
+			</form>
+		</div>
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-green" style="text-align: left;">
+			<form id="form_image_2" method="post" enctype="multipart/form-data">
+				<input type="file" id="file_img_2" name="myfile">
+				<input type="submit" id="submit2" name="submit" value="Upload image_2" >
+			</form>
+		</div>
+	</div>
+
+	<div class="w3-row" style="margin-top: 10px;">
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-green" style="text-align: center;">
+			<img id="img_3" src="/image_3.jpg" width="100" height="100"></img>
+		</div>
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-blue" style="text-align: center;">
+			<img id="img_4" src="/image_4.jpg" width="100" height="100"></img>
+		</div>
+	</div>
+	<div class="w3-row">
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-green" style="text-align: left;">
+			<form id="form_image_3" method="post" enctype="multipart/form-data">
+				<input type="file" id="file_img_3" name="myfile">
+				<input type="submit" id="submit3" name="submit" value="Upload image_3" >
+			</form>
+		</div>
+		<div class="w3-col w3-container s6 m6 l6 w3-pale-blue" style="text-align: left;">
+			<form id="form_image_4" method="post" enctype="multipart/form-data">
+				<input type="file" id="file_img_4" name="myfile">
+				<input type="submit" id="submit4" name="submit" value="Upload image_4" >
+			</form>
+		</div>
+	</div>
+
+	<div class="w3-panel w3-pale-yellow w3-border">
+		<h3>Note</h3>
+		<ol>
+			<li>Image format must be .jpg/.jpeg. Other formats are not supported</li>
+			<li>File size must be less than or equal to 300kB</li>
+			<li><b>For best result, crop the image to a square (1:1)</b></li>
+			<li><b>Recommended resolutions:</b>
+				<ul>
+					<li><b>240 x 240</b></li>
+					<li><b>480 x 480</b></li>
+					<li><b>960 x 960</b></li>
+				</ul>
+			</li>
+			<li>Recommended steps to prepare an image:
+				<ul>
+					<li>A. Go to <b>https://www.resizepixel.com</b></li>
+					<li>B. Upload a .jpg photo (NO other format)</li>
+					<li>C. Click on <b>Crop</b> menu and then select <b>Photo 1x1</b> in the </b> <b>Aspect ratio</b> dropdown.</li>
+					<li>D. Now click on <b>Crop</b> button</li>
+					<li>E. Click on <b>Resize</b> menu and enter <b>Width, Height</b> as per supported resolutions <i>(240x240, 480x480, 960x960)</i></li>
+					<li>F. Now click on <b>Resize</b> button</li>
+					<li>G. After Crop and Resize is done, click <b>Go to Download</b> button and then click <b>Download Image</b> button</li>
+					<li>H. Now upload the downloaded image to LameGallery (this device)</li>
+				</ul>
+			</li>
+			<li>progressive jpg is not supported. Check your settings when resizing/exporting using any software</li>
+		</ol>
+	</div>
+
+	<div class="w3-panel w3-pale-blue w3-border">
+		<h3>About</h3>
+		<p><b>LameGallery</b> is a pocket-sized digital photo gallery powered by a ESP8266 microcontroller. 
+			User can upload up to 4 images and switch between them using a single button. 
+			<br/>
+			See the project at <b>https://github.com/abhra0897/LameGallery</b>.
+		</p>
+	  </div>
+
+
+</body>
+</html>
+
+<script>
+
+	var image1 = document.getElementById('img_1');
+	var formImg1 = document.getElementById('form_image_1');
+	var fileSelectImg1 = document.getElementById('file_img_1');
+
+	var image2 = document.getElementById('img_2');
+	var formImg2 = document.getElementById('form_image_2');
+	var fileSelectImg2 = document.getElementById('file_img_2');
+
+	var image3 = document.getElementById('img_3');
+	var formImg3 = document.getElementById('form_image_3');
+	var fileSelectImg3 = document.getElementById('file_img_3');
+
+	var image4 = document.getElementById('img_4');
+	var formImg4 = document.getElementById('form_image_4');
+	var fileSelectImg4 = document.getElementById('file_img_4');
+
+	
+	function refreshImages(fileName, img){
+		// This method is mostly taken from https://stackoverflow.com/a/33110528
+	  	// Set up the request.
+		var xhr = new XMLHttpRequest();
+
+		// Open the connection.
+		xhr.open('GET', fileName, true);
+		// this mime type must be set, else image won't load
+		xhr.overrideMimeType("text/plain; charset=x-user-defined");
+
+		xhr.onload = function () {
+			if (xhr.status === 200) {
+				img.src = "data:image/jpeg;base64," + base64Encode(xhr.responseText);
+				//statusDiv.innerHTML = 'Refresh successful..';
+			} 
+			else {
+				//statusDiv.innerHTML = 'An error occurred during the refresh. Try again.';
+			}
+		};
+		xhr.send();
+		console.log("sent");
+	}
+
+	function uploadFile(fileName, fileSource){
+		//statusDiv.innerHTML = 'Uploading . . . ';
+
+		// Get the files from the input
+		var files = fileSource.files;
+
+		// Create a FormData object.
+		var formData = new FormData();
+
+		//Grab only one file since this script disallows multiple file uploads.
+		var file = files[0]; 
+		
+		console.log(file.type);
+		//Check the file type.
+		if (!file.type.match('image/jpeg')) {
+			console.log(file.type);
+			alert("You cannot upload this file because it’s not an jpg/jpeg image.");
+			return;
+		}
+
+		if (file.size >= 300 * 1000 ) {
+			console.log(file.size);
+			alert("You cannot upload this file because its size exceeds the maximum limit of 300kB.");
+			return;
+		}
+
+		// Renaming the file. Note: just changing file.name does not work. Need to create a new file
+		var renamedFile = new File([file], fileName, {type: "image/jpeg",});
+
+		 // Add the file to the AJAX request.
+		formData.append('myfile', renamedFile, renamedFile.name);
+
+		// Set up the request.
+		var xhr = new XMLHttpRequest();
+
+		// Open the connection.
+		xhr.open('POST', '/upload', true);
+
+
+		// Set up a handler for when the task for the request is complete.
+		xhr.onload = function () {
+			console.log(xhr.status);
+			if (xhr.status === 200) {
+			} 
+			else {
+			}
+		};
+
+		// Send the data.
+		xhr.send(formData);
+	
+	}
+
+
+	formImg1.onsubmit = function(event) {
+		event.preventDefault();
+		uploadFile('image_1.jpg', fileSelectImg1);
+		refreshImages('image_1.jpg', image1);
+	}
+	formImg2.onsubmit = function(event) {
+		event.preventDefault();
+		uploadFile('image_2.jpg', fileSelectImg2);
+		refreshImages('image_2.jpg', image2);
+	}
+	formImg3.onsubmit = function(event) {
+		event.preventDefault();
+		uploadFile('image_3.jpg', fileSelectImg3);
+		refreshImages('image_3.jpg', image3);
+	}
+	formImg4.onsubmit = function(event) {
+		event.preventDefault();
+		uploadFile('image_4.jpg', fileSelectImg4);
+		refreshImages('image_4.jpg', image4);
+	}
+
+	
+	function base64Encode(str) {
+        var CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        var out = "", i = 0, len = str.length, c1, c2, c3;
+        while (i < len) {
+            c1 = str.charCodeAt(i++) & 0xff;
+            if (i == len) {
+                out += CHARS.charAt(c1 >> 2);
+                out += CHARS.charAt((c1 & 0x3) << 4);
+                out += "==";
+                break;
+            }
+            c2 = str.charCodeAt(i++);
+            if (i == len) {
+                out += CHARS.charAt(c1 >> 2);
+                out += CHARS.charAt(((c1 & 0x3)<< 4) | ((c2 & 0xF0) >> 4));
+                out += CHARS.charAt((c2 & 0xF) << 2);
+                out += "=";
+                break;
+            }
+            c3 = str.charCodeAt(i++);
+            out += CHARS.charAt(c1 >> 2);
+            out += CHARS.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));
+            out += CHARS.charAt(((c2 & 0xF) << 2) | ((c3 & 0xC0) >> 6));
+            out += CHARS.charAt(c3 & 0x3F);
+        }
+        return out;
+    }
+	
+	
+
+</script>
